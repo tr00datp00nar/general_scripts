@@ -1,0 +1,48 @@
+#!/bin/sh
+
+# Color Variables
+BLUE="34"
+GREEN="32"
+BOLDBLUE="\e[1;${BLUE}m"
+BOLDGREEN="\e[1;${GREEN}m"
+ENDCOLOR="\e[0m"
+
+echo "${BOLDBLUE}"####################################################"${ENDCOLOR}"
+echo "${BOLDBLUE}### Updating package cache. ###${ENDCOLOR}"
+echo "${BOLDBLUE}"####################################################"${ENDCOLOR}"
+
+sudo apt update
+
+echo "${BOLDGREEN}"####################################################"${ENDCOLOR}"
+echo "${BOLDGREEN}### Done. ###${ENDCOLOR}"
+echo "${BOLDGREEN}"####################################################"${ENDCOLOR}"
+
+echo "${BOLDBLUE}"####################################################"${ENDCOLOR}"
+echo "${BOLDBLUE}### Upgrading currently installed packages. ###${ENDCOLOR}"
+echo "${BOLDBLUE}"####################################################"${ENDCOLOR}"
+
+sudo apt dist-upgrade -y
+
+echo "${BOLDGREEN}"####################################################"${ENDCOLOR}"
+echo "${BOLDGREEN}### Done. ###${ENDCOLOR}"
+echo "${BOLDGREEN}"####################################################"${ENDCOLOR}"
+
+echo "${BOLDBLUE}"####################################################"${ENDCOLOR}"
+echo "${BOLDBLUE}### Upgrading currently installed flatpaks. ###${ENDCOLOR}"
+echo "${BOLDBLUE}"####################################################"${ENDCOLOR}"
+
+flatpak upgrade -y
+
+echo "${BOLDGREEN}"####################################################"${ENDCOLOR}"
+echo "${BOLDGREEN}### Done. ###${ENDCOLOR}"
+echo "${BOLDGREEN}"####################################################"${ENDCOLOR}"
+
+echo "${BOLDBLUE}"####################################################"${ENDCOLOR}"
+echo "${BOLDBLUE}### Upgrading currently installed snap packages. ###${ENDCOLOR}"
+echo "${BOLDBLUE}"####################################################"${ENDCOLOR}"
+
+sudo snap refresh
+
+echo "${BOLDGREEN}"####################################################"${ENDCOLOR}"
+echo "${BOLDGREEN}### Done. ###${ENDCOLOR}"
+echo "${BOLDGREEN}"####################################################"${ENDCOLOR}"
